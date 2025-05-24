@@ -41,7 +41,7 @@ namespace FigureSolution.Services
 
         internal bool IsValid(double firstSide, double secondSide, double thirdSide)
         {
-            return (firstSide <= 0 || secondSide <= 0 || thirdSide <= 0) && (firstSide + secondSide <= thirdSide || secondSide + thirdSide <= firstSide || thirdSide + firstSide <= secondSide);
+            return (firstSide <= 0 || secondSide <= 0 || thirdSide <= 0) || (firstSide + secondSide <= thirdSide || secondSide + thirdSide <= firstSide || thirdSide + firstSide <= secondSide);
         }
     }
 }
