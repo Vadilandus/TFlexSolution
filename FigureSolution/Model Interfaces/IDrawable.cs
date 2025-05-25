@@ -7,6 +7,6 @@ namespace FigureSolution.Interfaces
         /// <summary>
         /// Создает UIElement геометрической фигуры для использования в WPF.
         /// </summary>
-        UIElement Draw();
+        UIElement CreateVisualUIElement();
     }
 }

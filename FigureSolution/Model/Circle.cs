@@ -9,8 +9,8 @@ namespace FigureSolution.Model
     /// </summary>
     public class Circle : BaseFigure
     {
-        public double Radius { get; protected set; }
-        public override string Name { get; protected set; }
+        public double Radius { get; set; }
+        public override string Name { get; set; }
 
         public Circle(double x, double y, double radius, string Name) : base(x, y)
         {
@@ -23,7 +23,7 @@ namespace FigureSolution.Model
         /// Абстрактный метод создания UIElement
         /// </summary>
         /// <returns>Возвращается объект класса UIElement</returns>
-        public override UIElement Draw()
+        public override UIElement CreateVisualUIElement()
         {
             double Diametr = Radius * 2;
             int StrokeThickness = 1;

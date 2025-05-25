@@ -23,12 +23,12 @@ namespace FigureSolution.Model
         /// <summary>
         /// передвижения фигуры
         /// </summary>
-        /// <param name="newX">На какое число по оси X</param>
-        /// <param name="newY">На какое число по оси Y</param>
-        public virtual void MoveTo(double newX, double newY)
+        /// <param name="deltaX">На какое число по оси X</param>
+        /// <param name="deltaY">На какое число по оси Y</param>
+        public virtual void MoveTo(double deltaX, double deltaY)
         {
-            this.x += newX;
-            this.y += newY;
+            this.x += deltaX;
+            this.y += deltaY;
         }
 
 
@@ -36,6 +36,6 @@ namespace FigureSolution.Model
         /// Абстрактный метод создания UIElement
         /// </summary>
         /// <returns>Возвращается объект класса UIElement</returns>
-        abstract public UIElement Draw();
+        abstract public UIElement CreateVisualUIElement();
     }
 }

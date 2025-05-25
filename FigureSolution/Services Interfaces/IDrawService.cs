@@ -10,6 +10,6 @@ namespace FigureSolution.Services
         /// </summary>
         /// <param name="Figure">Объект геометрической фигуры</param>
         /// <returns>Возвращает отрисованный UIElement</returns>
-        UIElement Draw(BaseFigure Figure);
+        void Draw(BaseFigure Figure);
     }
 }

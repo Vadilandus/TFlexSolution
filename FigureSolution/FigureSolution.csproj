@@ -70,7 +70,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model Interfaces\IDrawable.cs" />
-    <Compile Include="Model Interfaces\IRemovable.cs" />
+    <Compile Include="Services Interfaces\IRemovable.cs" />
     <Compile Include="Model\BaseFigure.cs" />
     <Compile Include="Model\Circle.cs" />
     <Compile Include="Model\Rectangle.cs" />

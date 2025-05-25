@@ -9,7 +9,7 @@ namespace FigureSolution.Model
     /// </summary>
     public class Triangle : BaseFigure
     {
-        public override string Name { get; protected set; }
+        public override string Name { get; set; }
         public Triangle(double x, double y, double firstSide, double secondSide, double thirdSide,string Name) : base(x, y)
         {
             this.Name = Name == null ? "Triangle" : Name;
@@ -18,16 +18,16 @@ namespace FigureSolution.Model
             this.ThirdSide = thirdSide;
         }
 
-        public double FirstSide { get; protected set; } = 3;
-        public double SecondSide { get; protected set; } = 4;
-        public double ThirdSide { get; protected set; } = 5;
+        public double FirstSide { get; set; } 
+        public double SecondSide { get; set; } 
+        public double ThirdSide { get; set; } 
 
 
         /// <summary>
         /// Абстрактный метод создания UIElement
         /// </summary>
         /// <returns>Возвращается объект класса UIElement</returns>
-        public override UIElement Draw()
+        public override UIElement CreateVisualUIElement()
         {
             var points = CalculateTrianglePoints();
             int StrokeThickness = 1;

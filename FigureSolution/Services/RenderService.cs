@@ -20,17 +20,15 @@ namespace FigureSolution.Services
         /// </summary>
         /// <param name="Figure">Объект геометрической фигуры</param>
         /// <returns>Возвращает отрисованный UIElement</returns>
-        public UIElement Draw(BaseFigure Figure)
+        public void Draw(BaseFigure Figure)
         {
-            UIElement DrawedFigure = Figure.Draw();
+            UIElement DrawedFigure = Figure.CreateVisualUIElement();
 
             Canvas.SetLeft(DrawedFigure, Figure.x);
             Canvas.SetTop(DrawedFigure, Figure.y);
             canvas.Children.Add(DrawedFigure);
 
             FigureMap[Figure] = DrawedFigure;
-
-            return DrawedFigure;
         }
 
 
