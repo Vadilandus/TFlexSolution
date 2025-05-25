@@ -8,40 +8,38 @@ namespace FigureSolution.Services
     public class Validator : IValidator
     {
         /// <summary>
-        /// наследуемый метод без параметров
-        /// </summary>
-        /// <returns>Значение false</returns>
-        public bool IsValid()
-        {
-            return false;
-        }
-
-
-        /// <summary>
-        /// Проверяет, чтобы значение радиуса было >= 0
+        /// Проверяет на правило для создания Круга
         /// </summary>
         /// <param name="radius">Радиус окружности</param>
-        /// <returns>true или false</returns>
-        public bool IsValid(double radius)
+        /// <returns>true в случае успеха</returns>
+        public bool IsCircleValid(double radius)
         {
             return radius > 0;
         }
 
 
         /// <summary>
-        /// Проверяет, чтобы значения прямоугольника были>= 0.
+        /// Проверяет на правило для создания Прямоугольника
         /// </summary>
         /// <param name="height"></param>
         /// <param name="width"></param>
-        /// <returns></returns>
-        public bool IsValid(double height, double width)
+        /// <returns>true в случае успеха</returns>
+        public bool IsRectangleValid(double width, double height)
         {
             return height > 0 || width > 0;
         }
 
-        internal bool IsValid(double firstSide, double secondSide, double thirdSide)
+
+        /// <summary>
+        /// Проверяет на правила для создания треугольника
+        /// </summary>
+        /// <param name="firstside"></param>
+        /// <param name="secondside"></param>
+        /// <param name="thirdside"></param>
+        /// <returns>true в случае успеха</returns>
+        public bool IsTriangleValid(double firstside, double secondside, double thirdside)
         {
-            return (firstSide > 0 && secondSide > 0 && thirdSide > 0) && (firstSide + secondSide > thirdSide && secondSide + thirdSide > firstSide && thirdSide + firstSide > secondSide);
+            return (firstside > 0 && secondside > 0 && thirdside > 0) && (firstside + secondside > thirdside && secondside + thirdside > firstside && thirdside + secondside > thirdside);
         }
     }
 }
