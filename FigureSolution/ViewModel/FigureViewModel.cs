@@ -1,6 +1,7 @@
 ﻿using FigureSolution.Model;
 using FigureSolution.Services;
 using FigureSolution.Utils;
+using NLog;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
@@ -14,6 +15,7 @@ namespace FigureSolution.ViewModel
     /// </summary>
     public class FigureViewModel : INotifyPropertyChanged
     {
+        static private Logger logger = LogManager.GetCurrentClassLogger();
         #region Fields
         private readonly IRenderService renderService;
         private BaseFigure _selectedFigure;
@@ -30,7 +32,7 @@ namespace FigureSolution.ViewModel
         {
             get => _selectedFigure;
             set
-            {
+            {   
                 _selectedFigure = value;
                 OnPropertyChanged(nameof(SelectedFigure));
             }
@@ -89,12 +91,14 @@ namespace FigureSolution.ViewModel
 
         public FigureViewModel(IRenderService renderService)
         {
+            logger.Info("Запустился конструктор ViewModel");
             this.renderService = renderService;
 
             AddCircleCommand = new RelayCommand(AddCircle);
             AddRectangleCommand = new RelayCommand(AddRectangle);
             AddTriangleCommand = new RelayCommand(AddTriangle);
             RemoveFigureCommand = new RelayCommand(RemoveFigure, CanRemoveFigure);
+            logger.Info("Конструктор закончил работу");
         }
 
 
@@ -126,14 +130,13 @@ namespace FigureSolution.ViewModel
         {
             if (validator.IsValid(Width))
             {
-                MessageBox.Show("Значение радиуса не назначено или равно 0. \nЗаполните или замените значение.");
+                Circle circle = new Circle(X, Y, Width, FigureName);
+                baseFigures.Add(circle);
+                renderService.Draw(circle);
             }
             else
             {
-                var circle = new Circle(X, Y, Width, FigureName);
-
-                baseFigures.Add(circle);
-                renderService.Draw(circle);
+                MessageBox.Show("Значение радиуса не назначено или равно 0. \nЗаполните или замените значение.");
             }
 
         }
@@ -147,14 +150,13 @@ namespace FigureSolution.ViewModel
         {
             if (validator.IsValid(FirstSide,SecondSide,ThirdSide))
             {
-                MessageBox.Show("Заполните значения для сторон треугольника, \nучитывая правила его создания. \nПравило: чтобы суммы двух любых сторон были больше !другой! третьей стороны");
+                Triangle triangle = new Triangle(X, Y, FirstSide, SecondSide, ThirdSide, FigureName);
+                baseFigures.Add(triangle);
+                renderService.Draw(triangle);
             }
             else
             {
-                var triangle = new Triangle(X, Y, FirstSide, SecondSide, ThirdSide, FigureName);
-
-                baseFigures.Add(triangle);
-                renderService.Draw(triangle);
+                MessageBox.Show("Заполните значения для сторон треугольника, \nучитывая правила его создания. \nПравило: чтобы суммы двух любых сторон были больше !другой! третьей стороны");
             }
         }
 
@@ -167,13 +169,13 @@ namespace FigureSolution.ViewModel
         {
             if (validator.IsValid(Width,Height))
             {
-                MessageBox.Show("Заполните значения ширины и длины реальными существующими значениями.");
+                Rectangle rectangle = new Rectangle(X, Y, Height, Width, FigureName);
+                baseFigures.Add(rectangle);
+                renderService.Draw(rectangle);
             }
             else
             {
-                var rectangle = new Rectangle(X, Y, Height, Width, FigureName);
-                baseFigures.Add(rectangle);
-                renderService.Draw(rectangle);
+                MessageBox.Show("Заполните значения ширины и длины реальными существующими значениями.");
             }
         }
 

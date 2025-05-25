@@ -8,11 +8,11 @@ namespace FigureSolution.Model
     /// </summary>
     abstract public class BaseFigure : IDrawable
     {
-        abstract public string Name { get; protected set; }
-        public double x { get; protected set; } = 0;
-        public double y { get; protected set; } = 0;
-        public bool IsSelected { get; protected set; } = false;
-        public int Priority { get; protected set; }
+        abstract public string Name { get; set; }
+        public double x { get; set; }
+        public double y { get; set; }
+        public bool IsSelected { get; set; }
+        public int Priority { get; set; }
         protected BaseFigure (double x, double y)
         {
             this.x = x;

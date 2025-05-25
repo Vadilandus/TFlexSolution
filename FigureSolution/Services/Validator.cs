@@ -24,7 +24,7 @@ namespace FigureSolution.Services
         /// <returns>true или false</returns>
         public bool IsValid(double radius)
         {
-            return radius <= 0;
+            return radius > 0;
         }
 
 
@@ -36,12 +36,12 @@ namespace FigureSolution.Services
         /// <returns></returns>
         public bool IsValid(double height, double width)
         {
-            return height <= 0 || width <= 0;
+            return height > 0 || width > 0;
         }
 
         internal bool IsValid(double firstSide, double secondSide, double thirdSide)
         {
-            return (firstSide <= 0 || secondSide <= 0 || thirdSide <= 0) && (firstSide + secondSide <= thirdSide || secondSide + thirdSide <= firstSide || thirdSide + firstSide <= secondSide);
+            return (firstSide > 0 || secondSide > 0 || thirdSide > 0) || (firstSide + secondSide > thirdSide || secondSide + thirdSide > firstSide || thirdSide + firstSide > secondSide);
         }
     }
 }
