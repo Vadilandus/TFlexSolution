@@ -1,6 +1,7 @@
 ﻿using FigureSolution.Model;
 using FigureSolution.Services;
 using FigureSolution.Utils;
+using GalaSoft.MvvmLight.Messaging;
 using NLog;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -128,7 +129,7 @@ namespace FigureSolution.ViewModel
         /// <param name="parameter">параметры полотна</param>
         private void AddCircle(object parameter)
         {
-            if (validator.IsValid(Width))
+            if (validator.IsCircleValid(Width))
             {
                 Circle circle = new Circle(X, Y, Width, FigureName);
                 baseFigures.Add(circle);
@@ -136,7 +137,7 @@ namespace FigureSolution.ViewModel
             }
             else
             {
-                MessageBox.Show("Значение радиуса не назначено или равно 0. \nЗаполните или замените значение.");
+                Messenger.Default.Send(new ShowDialogMessage("Значение радиуса не назначено или равно 0. \nЗаполните или замените значение."));
             }
 
         }
@@ -148,7 +149,7 @@ namespace FigureSolution.ViewModel
         /// <param name="parameter">параметры полотна</param>
         private void AddTriangle(object parameter)
         {
-            if (validator.IsValid(FirstSide,SecondSide,ThirdSide))
+            if (validator.IsTriangleValid(FirstSide,SecondSide,ThirdSide))
             {
                 Triangle triangle = new Triangle(X, Y, FirstSide, SecondSide, ThirdSide, FigureName);
                 baseFigures.Add(triangle);
@@ -156,7 +157,7 @@ namespace FigureSolution.ViewModel
             }
             else
             {
-                MessageBox.Show("Заполните значения для сторон треугольника, \nучитывая правила его создания. \nПравило: чтобы суммы двух любых сторон были больше !другой! третьей стороны");
+                Messenger.Default.Send(new ShowDialogMessage("Заполните значения для сторон треугольника, \nучитывая правила его создания. \nПравило: чтобы суммы двух любых сторон были больше !другой! третьей стороны"));
             }
         }
 
@@ -167,7 +168,7 @@ namespace FigureSolution.ViewModel
         /// <param name="parameter">параметры полотна</param>
         private void AddRectangle(object parameter)
         {
-            if (validator.IsValid(Width,Height))
+            if (validator.IsRectangleValid(Width,Height))
             {
                 Rectangle rectangle = new Rectangle(X, Y, Height, Width, FigureName);
                 baseFigures.Add(rectangle);
@@ -175,7 +176,7 @@ namespace FigureSolution.ViewModel
             }
             else
             {
-                MessageBox.Show("Заполните значения ширины и длины реальными существующими значениями.");
+                Messenger.Default.Send(new ShowDialogMessage("Заполните значения ширины и длины реальными существующими значениями."));
             }
         }
 

@@ -20,7 +20,7 @@ namespace FigureSolution.Model
 
 
         /// <summary>
-        /// Абстрактный метод создания объекта на основе этого класса в объект UIElement
+        /// Метод создания объекта на основе этого класса в объект UIElement
         /// </summary>
         /// <returns>Возвращает объект класса UIElement</returns>
         public override UIElement CreateVisualUIElement()
