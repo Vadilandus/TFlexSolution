@@ -20,9 +20,9 @@ namespace FigureSolution.Model
 
 
         /// <summary>
-        /// Абстрактный метод создания UIElement
+        /// Абстрактный метод создания объекта на основе этого класса в объект UIElement
         /// </summary>
-        /// <returns>Возвращается объект класса UIElement</returns>
+        /// <returns>Возвращает объект класса UIElement</returns>
         public override UIElement CreateVisualUIElement()
         {
             double Diametr = Radius * 2;

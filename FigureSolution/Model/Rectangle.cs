@@ -22,10 +22,10 @@ namespace FigureSolution.Model
 
 
         /// <summary>
-        /// Абстрактный метод создания UIElement
+        /// Метод создания объекта на основе этого класса в объект UIElement
         /// </summary>
-        /// <returns>Возвращается объект класса UIElement</returns>
-        public override UIElement CreateUIElement()
+        /// <returns>Возвращает объект класса UIElement</returns>
+        public override UIElement CreateVisualUIElement()
         {
             int StrokeThickness = 1;
             return new System.Windows.Shapes.Rectangle

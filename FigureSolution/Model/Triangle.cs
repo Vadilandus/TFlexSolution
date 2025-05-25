@@ -20,13 +20,13 @@ namespace FigureSolution.Model
 
         public double FirstSide { get; set; } 
         public double SecondSide { get; set; } 
-        public double ThirdSide { get; set; } 
+        public double ThirdSide { get; set; }
 
 
         /// <summary>
-        /// Абстрактный метод создания UIElement
+        /// Метод создания объекта на основе этого класса в объект UIElement
         /// </summary>
-        /// <returns>Возвращается объект класса UIElement</returns>
+        /// <returns>Возвращает объект класса UIElement</returns>
         public override UIElement CreateVisualUIElement()
         {
             var points = CalculateTrianglePoints();
