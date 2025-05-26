@@ -18,7 +18,7 @@
             <ColumnDefinition Width="101*"/>
         </Grid.ColumnDefinitions>
         <ListBox x:Name="FigureList" 
-                 ItemsSource="{Binding baseFigures}"
+                 ItemsSource="{Binding BaseFigures}"
                  DisplayMemberPath="Name"
                  SelectedItem="{Binding SelectedFigure}"
                  Width="155" HorizontalAlignment="Left"/>

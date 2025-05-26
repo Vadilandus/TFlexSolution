@@ -3,9 +3,12 @@ using FigureSolution.Services;
 using FigureSolution.Utils;
 using GalaSoft.MvvmLight.Messaging;
 using NLog;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 using Rectangle = FigureSolution.Model.Rectangle;
 
@@ -19,70 +22,66 @@ namespace FigureSolution.ViewModel
         static private Logger logger = LogManager.GetCurrentClassLogger();
         #region Fields
         private readonly IRenderService renderService;
-        private BaseFigure _selectedFigure;
-        private string _figureName;
-        private double _x;
-        private double _y;
-        private double _width;
-        private double _height;
-        public double _FirstSide;
-        public double _SecondSide;
-        public double _ThirdSide;
+        private BaseFigure selectedFigure;
+        private string figureName;
+        private double x;
+        private double y;
+        private double width;
+        private double height;
+        private double firstSide;
+        private double secondSide;
+        private double thirdSide;
 
         public BaseFigure SelectedFigure
         {
-            get => _selectedFigure;
-            set
-            {   
-                _selectedFigure = value;
-                OnPropertyChanged(nameof(SelectedFigure));
-            }
+            get => selectedFigure; 
+            set => SetProperty(ref selectedFigure, value);
         }
 
         public double FirstSide
         {
-            get => _FirstSide;
-            set { _FirstSide = value; OnPropertyChanged(); }
+            get => firstSide;
+            set => SetProperty(ref firstSide, value);
         }
         public double SecondSide
         {
-            get => _SecondSide;
-            set { _SecondSide = value; OnPropertyChanged(); }
+            get => secondSide;
+            set => SetProperty(ref secondSide, value);
         }
         public double ThirdSide
         {
-            get => _ThirdSide;
-            set { _ThirdSide = value; OnPropertyChanged(); }
+            get => thirdSide;
+            set => SetProperty(ref thirdSide, value);
         }
 
         public string FigureName
         {
-            get => _figureName;
-            set { _figureName = value; OnPropertyChanged(); }
+            get => figureName;
+            set => SetProperty(ref figureName, value);
         }
 
         public double X
         {
-            get => _x;
-            set { _x = value; OnPropertyChanged(); }
+            get => x;
+            set => SetProperty(ref x, value);
         }
 
         public double Y
         {
-            get => _y;
-            set { _y = value; OnPropertyChanged(); }
+            get => y;
+            set => SetProperty(ref y, value);
         }
 
         public double Width
         {
-            get => _width;
-            set { _width = value; OnPropertyChanged(); }
+            get => width;
+            set => SetProperty(ref width, value);
         }
 
         public double Height
         {
-            get => _height;
-            set { _height = value; OnPropertyChanged(); }
+            get => height;
+            set => SetProperty(ref height, value);
         }
 
         public ObservableCollection<BaseFigure> BaseFigures { get; set; } = new ObservableCollection<BaseFigure>();
@@ -198,6 +197,15 @@ namespace FigureSolution.ViewModel
 
         #region Реализация INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
+
+
+        protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string propertyName = "")
+        {
+            if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+            field = value;
+            OnPropertyChanged(propertyName);
+            return true;
+        }
 
 
         protected virtual void OnPropertyChanged(string propertyName = null)
