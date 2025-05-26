@@ -54,9 +54,9 @@ namespace FigureSolution.Model
             return new PointCollection
         {
             // Левая вершина основания
-            new Point(x, y),          
+            new Point(X, Y),          
             // Правая вершина основания
-            new Point(FirstSide, y),          
+            new Point(FirstSide, Y),          
             // Верхняя вершина
             new Point(FirstSide / 2, height)  
         };

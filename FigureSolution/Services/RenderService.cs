@@ -1,4 +1,5 @@
-﻿using FigureSolution.Model;
+﻿using FigureSolution.Interfaces;
+using FigureSolution.Model;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -12,7 +13,7 @@ namespace FigureSolution.Services
     internal class RenderService : IRenderService
     {
         protected Canvas canvas;
-        protected Dictionary<BaseFigure, UIElement> FigureMap = new Dictionary<BaseFigure, UIElement>();
+        protected Dictionary<IDrawable, UIElement> FigureMap = new Dictionary<IDrawable, UIElement>();
         
 
         /// <summary>
@@ -20,15 +21,15 @@ namespace FigureSolution.Services
         /// </summary>
         /// <param name="Figure">Объект геометрической фигуры</param>
         /// <returns>Возвращает отрисованный UIElement</returns>
-        public void Draw(BaseFigure Figure)
+        void IDrawService.Draw(IDrawable drawable)
         {
-            UIElement DrawedFigure = Figure.CreateVisualUIElement();
+            UIElement DrawedFigure = drawable.CreateVisualUIElement();
 
-            Canvas.SetLeft(DrawedFigure, Figure.x);
-            Canvas.SetTop(DrawedFigure, Figure.y);
+            Canvas.SetLeft(DrawedFigure, drawable.X);
+            Canvas.SetTop(DrawedFigure, drawable.Y);
             canvas.Children.Add(DrawedFigure);
 
-            FigureMap[Figure] = DrawedFigure;
+            FigureMap[drawable] = DrawedFigure;
         }
 
 
@@ -44,7 +45,7 @@ namespace FigureSolution.Services
         /// Удаление геометрической фигуры с полотна
         /// </summary>
         /// <param name="figure">объект геометрической фигуры</param>
-        public void Remove(BaseFigure figure)
+        void IRemovable.Remove(BaseFigure figure)
         {
             if (FigureMap.TryGetValue(figure, out var uIElement))
             {
