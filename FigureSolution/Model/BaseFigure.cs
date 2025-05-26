@@ -9,14 +9,14 @@ namespace FigureSolution.Model
     abstract public class BaseFigure : IDrawable
     {
         public string Name { get; set; }
-        public double x { get; set; }
-        public double y { get; set; }
+        public double X { get; set; }
+        public double Y { get; set; }
         public bool IsSelected { get; set; }
         public int Priority { get; set; }
-        protected BaseFigure (double x, double y)
+        public BaseFigure (double x, double y)
         {
-            this.x = x;
-            this.y = y;
+            this.X = x;
+            this.Y = y;
         }
 
 
@@ -27,8 +27,8 @@ namespace FigureSolution.Model
         /// <param name="deltaY">На какое число по оси Y</param>
         public virtual void MoveTo(double deltaX, double deltaY)
         {
-            this.x += deltaX;
-            this.y += deltaY;
+            this.X += deltaX;
+            this.Y += deltaY;
         }
 
 

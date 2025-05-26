@@ -19,7 +19,7 @@ namespace FigureSolution.ViewModel
     /// </summary>
     public class FigureViewModel : INotifyPropertyChanged
     {
-        static private Logger logger = LogManager.GetCurrentClassLogger();
+        static private Logger _logger = LogManager.GetCurrentClassLogger();
         #region Fields
         private readonly IRenderService renderService;
         private BaseFigure selectedFigure;
@@ -91,14 +91,14 @@ namespace FigureSolution.ViewModel
 
         public FigureViewModel(IRenderService renderService)
         {
-            logger.Info("Запустился конструктор ViewModel");
+            _logger.Info("Запустился конструктор ViewModel");
             this.renderService = renderService;
 
             AddCircleCommand = new RelayCommand(AddCircle);
             AddRectangleCommand = new RelayCommand(AddRectangle);
             AddTriangleCommand = new RelayCommand(AddTriangle);
             RemoveFigureCommand = new RelayCommand(RemoveFigure, CanRemoveFigure);
-            logger.Info("Конструктор закончил работу");
+            _logger.Info("Конструктор закончил работу");
         }
 
 

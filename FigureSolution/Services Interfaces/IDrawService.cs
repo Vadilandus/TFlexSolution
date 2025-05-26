@@ -1,4 +1,5 @@
-﻿using FigureSolution.Model;
+﻿using FigureSolution.Interfaces;
+using FigureSolution.Model;
 using System.Windows;
 
 namespace FigureSolution.Services
@@ -10,6 +11,6 @@ namespace FigureSolution.Services
         /// </summary>
         /// <param name="Figure">Объект геометрической фигуры</param>
         /// <returns>Возвращает отрисованный UIElement</returns>
-        void Draw(BaseFigure Figure);
+        void Draw(IDrawable drawable);
     }
 }

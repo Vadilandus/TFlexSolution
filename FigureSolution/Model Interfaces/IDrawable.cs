@@ -2,7 +2,7 @@
 
 namespace FigureSolution.Interfaces
 {
-    internal interface IDrawable
+    public interface IDrawable
     {
         /// <summary>
         /// Создает UIElement геометрической фигуры для использования в WPF.
