@@ -35,7 +35,7 @@ namespace FIgureSolutionTests
 
             // Action
             ViewModel.AddCircleCommand.Execute(null);
-            Circle newcircle = (Circle)ViewModel.baseFigures.First();
+            Circle newcircle = (Circle)ViewModel.BaseFigures.First();
 
 
             // Assert
@@ -63,12 +63,12 @@ namespace FIgureSolutionTests
 
             //Action
             ViewModel.AddRectangleCommand.Execute(null);
-            Rectangle newrectangle = (Rectangle)ViewModel.baseFigures.First();
+            Rectangle newrectangle = (Rectangle)ViewModel.BaseFigures.First();
 
             // Assert
             Assert.AreEqual(10, newrectangle.x);
             Assert.AreEqual(20, newrectangle.y);
-            Assert.AreEqual(100, newrectangle.width);
+            Assert.AreEqual(100, newrectangle.Width);
             Assert.AreEqual(100, newrectangle.height);
             Assert.AreEqual("Test", newrectangle.Name);
         }
@@ -94,7 +94,7 @@ namespace FIgureSolutionTests
 
             //Action
             ViewModel.AddTriangleCommand.Execute(null);
-            Triangle newtriangle = (Triangle)ViewModel.baseFigures.First();
+            Triangle newtriangle = (Triangle)ViewModel.BaseFigures.First();
 
             // Assert
             Assert.AreEqual(10, newtriangle.x);

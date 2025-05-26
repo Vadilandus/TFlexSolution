@@ -85,7 +85,7 @@ namespace FigureSolution.ViewModel
             set { _height = value; OnPropertyChanged(); }
         }
 
-        public ObservableCollection<BaseFigure> baseFigures { get; set; } = new ObservableCollection<BaseFigure>();
+        public ObservableCollection<BaseFigure> BaseFigures { get; set; } = new ObservableCollection<BaseFigure>();
 
         public Validator validator = new Validator();
         #endregion
@@ -132,7 +132,7 @@ namespace FigureSolution.ViewModel
             if (validator.IsCircleValid(Width))
             {
                 Circle circle = new Circle(X, Y, Width, FigureName);
-                baseFigures.Add(circle);
+                BaseFigures.Add(circle);
                 renderService.Draw(circle);
             }
             else
@@ -152,7 +152,7 @@ namespace FigureSolution.ViewModel
             if (validator.IsTriangleValid(FirstSide,SecondSide,ThirdSide))
             {
                 Triangle triangle = new Triangle(X, Y, FirstSide, SecondSide, ThirdSide, FigureName);
-                baseFigures.Add(triangle);
+                BaseFigures.Add(triangle);
                 renderService.Draw(triangle);
             }
             else
@@ -171,7 +171,7 @@ namespace FigureSolution.ViewModel
             if (validator.IsRectangleValid(Width,Height))
             {
                 Rectangle rectangle = new Rectangle(X, Y, Height, Width, FigureName);
-                baseFigures.Add(rectangle);
+                BaseFigures.Add(rectangle);
                 renderService.Draw(rectangle);
             }
             else
@@ -190,7 +190,7 @@ namespace FigureSolution.ViewModel
             if (SelectedFigure != null)
             {
                 renderService.Remove(SelectedFigure);
-                baseFigures.Remove(SelectedFigure);
+                BaseFigures.Remove(SelectedFigure);
                 SelectedFigure = null;
             }
         }

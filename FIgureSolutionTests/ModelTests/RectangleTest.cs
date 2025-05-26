@@ -16,7 +16,7 @@ namespace FIgureSolutionTests.ModelTests
             //Assert
             Assert.AreEqual(10,rectangle.x);
             Assert.AreEqual(10,rectangle.y);
-            Assert.AreEqual(100,rectangle.width);
+            Assert.AreEqual(100,rectangle.Width);
             Assert.AreEqual(100,rectangle.height);
             Assert.AreEqual("CorrectRectangle",rectangle.Name);
         }

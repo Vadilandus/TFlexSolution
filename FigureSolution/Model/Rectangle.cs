@@ -10,14 +10,14 @@ namespace FigureSolution.Model
     public class Rectangle : BaseFigure
     {
         public override string Name { get; set; }
-        public double width { get; set; }
-        public double height { get; set; }
+        public double Width { get; set; }
+        public double Height { get; set; }
 
         public Rectangle(double x, double y, double height, double width, string Name) : base(x, y)
         {
             this.Name = Name == null ? "Circle" : Name;
-            this.height = height;
-            this.width = width;
+            this.Height = height;
+            this.Width = width;
         }
 
 
@@ -30,8 +30,8 @@ namespace FigureSolution.Model
             int StrokeThickness = 1;
             return new System.Windows.Shapes.Rectangle
             {
-                Width = width,
-                Height = height,
+                Width = Width,
+                Height = Height,
                 Stroke = Brushes.Black,
                 StrokeThickness = StrokeThickness,
             };

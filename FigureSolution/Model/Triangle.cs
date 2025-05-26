@@ -10,17 +10,18 @@ namespace FigureSolution.Model
     public class Triangle : BaseFigure
     {
         public override string Name { get; set; }
-        public Triangle(double x, double y, double firstSide, double secondSide, double thirdSide,string Name) : base(x, y)
+        public double FirstSide { get; set; } 
+        public double SecondSide { get; set; } 
+        public double ThirdSide { get; set; }
+
+
+        public Triangle(double x, double y, double firstSide, double secondSide, double thirdSide, string Name) : base(x, y)
         {
             this.Name = Name == null ? "Triangle" : Name;
             this.FirstSide = firstSide;
             this.SecondSide = secondSide;
             this.ThirdSide = thirdSide;
         }
-
-        public double FirstSide { get; set; } 
-        public double SecondSide { get; set; } 
-        public double ThirdSide { get; set; }
 
 
         /// <summary>

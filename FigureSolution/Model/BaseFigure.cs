@@ -8,7 +8,7 @@ namespace FigureSolution.Model
     /// </summary>
     abstract public class BaseFigure : IDrawable
     {
-        abstract public string Name { get; set; }
+        public virtual string Name { get; set; }
         public double x { get; set; }
         public double y { get; set; }
         public bool IsSelected { get; set; }
