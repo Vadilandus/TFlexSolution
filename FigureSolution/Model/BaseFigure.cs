@@ -13,6 +13,8 @@ namespace FigureSolution.Model
         public double Y { get; set; }
         public bool IsSelected { get; set; }
         public int Priority { get; set; }
+
+
         public BaseFigure (double x, double y)
         {
             this.X = x;

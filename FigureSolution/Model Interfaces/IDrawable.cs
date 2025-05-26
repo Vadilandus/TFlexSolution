@@ -6,6 +6,8 @@ namespace FigureSolution.Interfaces
     {
         double X { get; }
         double Y { get; }
+
+
         /// <summary>
         /// Создает UIElement геометрической фигуры для использования в WPF.
         /// </summary>

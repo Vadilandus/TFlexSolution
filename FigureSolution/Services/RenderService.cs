@@ -45,12 +45,12 @@ namespace FigureSolution.Services
         /// Удаление геометрической фигуры с полотна
         /// </summary>
         /// <param name="figure">объект геометрической фигуры</param>
-        void IRemovable.Remove(BaseFigure figure)
+        void IRemovable.Remove(IDrawable drawable)
         {
-            if (FigureMap.TryGetValue(figure, out var uIElement))
+            if (FigureMap.TryGetValue(drawable, out var uIElement))
             {
                 canvas.Children.Remove(uIElement);
-                FigureMap.Remove(figure);
+                FigureMap.Remove(drawable);
             }
         }
     }

@@ -9,7 +9,7 @@ namespace FigureSolution.Services
         /// <summary>
         /// Отрисовка UIElement в canvas.
         /// </summary>
-        /// <param name="Figure">Объект геометрической фигуры</param>
+        /// <param name="drawable">Контракт, отрисовывающий UIElement для добавления в канвас</param>
         /// <returns>Возвращает отрисованный UIElement</returns>
         void Draw(IDrawable drawable);
     }
