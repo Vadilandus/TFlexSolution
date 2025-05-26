@@ -9,7 +9,7 @@ namespace FigureSolution.Model
     /// </summary>
     public class Triangle : BaseFigure
     {
-        public override string Name { get; set; }
+        const string TriangleModelName = "Triangle";
         public double FirstSide { get; set; } 
         public double SecondSide { get; set; } 
         public double ThirdSide { get; set; }
@@ -17,7 +17,7 @@ namespace FigureSolution.Model
 
         public Triangle(double x, double y, double firstSide, double secondSide, double thirdSide, string Name) : base(x, y)
         {
-            this.Name = Name == null ? "Triangle" : Name;
+            this.Name = Name != null && Name != string.Empty ? Name : TriangleModelName;
             this.FirstSide = firstSide;
             this.SecondSide = secondSide;
             this.ThirdSide = thirdSide;

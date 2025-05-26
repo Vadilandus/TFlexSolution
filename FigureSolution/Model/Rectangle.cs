@@ -9,13 +9,13 @@ namespace FigureSolution.Model
     /// </summary>
     public class Rectangle : BaseFigure
     {
-        public override string Name { get; set; }
+        const string RectangleModelName = "Rectangle";
         public double Width { get; set; }
         public double Height { get; set; }
 
         public Rectangle(double x, double y, double height, double width, string Name) : base(x, y)
         {
-            this.Name = Name == null ? "Circle" : Name;
+            this.Name = Name != null && Name != string.Empty ? Name : RectangleModelName;
             this.Height = height;
             this.Width = width;
         }
